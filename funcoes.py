@@ -149,3 +149,35 @@ def calcula_pontos_quadra(dados_rolados):
             soma_total += d
         return soma_total
     return 0
+
+def calcula_pontos_quina(dados_rolados):
+    # pelo menos 5 valores =
+    valores_unicos = []
+    for dado in dados_rolados:
+        if dado not in valores_unicos:
+            valores_unicos.append(dado)
+    tem_quina = False
+    for valor in valores_unicos:
+        qtd = 0
+        for dado in dados_rolados:
+            if dado == valor:
+                qtd += 1
+        if qtd >= 5:
+            tem_quina = True
+    if tem_quina:
+        return 50
+    return 0
+
+def calcula_pontos_regra_avancada(dados_rolados):
+    soma_total = 0 # s combinacao
+    for dado in dados_rolados:
+        soma_total += dado
+    pontuacoes = {
+        'sem_combinacao': soma_total,
+        'sequencia_baixa': calcula_pontos_sequencia_baixa(dados_rolados),
+        'sequencia_alta': calcula_pontos_sequencia_alta(dados_rolados),
+        'full_house': calcula_pontos_full_house(dados_rolados),
+        'quadra': calcula_pontos_quadra(dados_rolados),
+        'cinco_iguais': calcula_pontos_quina(dados_rolados) # Usando a função de quina para 'cinco_iguais'
+    }
+    return pontuacoes
