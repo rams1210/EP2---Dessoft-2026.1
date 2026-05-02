@@ -177,5 +177,14 @@ def calcula_pontos_regra_avancada(dados_rolados):
         'quadra': calcula_pontos_quadra(dados_rolados),
         'cinco_iguais': calcula_pontos_quina(dados_rolados)
     }
-
     return pontuacoes
+
+def faz_jogada(dados, categoria, cartela_de_pontos):
+    if categoria in cartela_de_pontos['regra_simples']:
+        pontos_simples = calcula_pontos_regra_simples(dados)
+        cartela_de_pontos['regra_simples'][categoria] = pontos_simples[categoria]
+    elif categoria in cartela_de_pontos['regra_avancada']:
+        pontos_avancados = calcula_pontos_regra_avancada(dados)
+        cartela_de_pontos['regra_avancada'][categoria] = pontos_avancados[categoria]
+
+    return cartela_de_pontos
