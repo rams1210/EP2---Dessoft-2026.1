@@ -46,3 +46,29 @@ def calcula_pontos_soma(dados_rolados):
     for dado in dados_rolados:
         soma += dado
     return soma
+
+def calcula_pontos_sequencia_baixa(dados_rolados):
+    # 3 combinacoes possiveis de sequencias baixas: [1,2,3,4] / [2,3,4,5] / [3,4,5,6]
+    # dados rolados: ordenar e tirar repetidos
+
+    n = len(dados_rolados)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if dados_rolados[j] > dados_rolados[j + 1]:
+                dados_rolados[j], dados_rolados[j + 1] = dados_rolados[j + 1], dados_rolados[j]
+    valores_unicos = []
+    for dado in dados_rolados:
+        if dado not in valores_unicos:
+            valores_unicos.append(dado)
+    if len(valores_unicos) < 4:
+        return 0
+    contador_sequencia = 1
+    for i in range(len(valores_unicos) - 1):
+        if valores_unicos[i+1] == valores_unicos[i] + 1:
+            contador_sequencia += 1
+            if contador_sequencia == 4:
+                return 15
+        else:
+            contador_sequencia = 1
+    return 0
+
