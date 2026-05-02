@@ -20,9 +20,9 @@ def guardar_dado(dados_rolados, dados_no_estoque, indice):
     return [dados_rolados, dados_no_estoque]
 
 def remover_dado(dados_rolados, dados_no_estoque, indice2):
-    # indice2 remove o elemento da lista dados_no_estoque e coloca esse elemento na lista dados_rolados
+    # indice2 remove o elemento da lista dados_no_estoque e coloca esse elemento na lista dados_rolados (dados na mesa)
 
-    dado_para_tirar = dados_rolados[indice2]
+    dado_para_tirar = dados_no_estoque[indice2]
     del dados_no_estoque[indice2]
     dados_rolados.append(dado_para_tirar)
     return [dados_rolados, dados_no_estoque]
