@@ -1,0 +1,15 @@
+# Rolar dados
+# Guardar dado
+# Remover dado
+# Calcula pontos na regra simples
+# Calcula pontos na regra avançada - Soma
+# Calcula pontos na regra avançada - Sequência baixa
+# Calcula pontos na regra avançada - Sequência alta
+# Calcula pontos na regra avançada - Full House
+# Calcula pontos na regra avançada - Quadra
+# Calcula pontos na regra avançada - Quina
+# Calcula pontos na regra avançada
+# Faz jogada
+# Jogo >> EXERCICIO
+
+# funções devem ser importadas daqui, n copiar para o arquivo do programa.
