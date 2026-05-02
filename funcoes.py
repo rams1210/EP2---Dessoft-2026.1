@@ -40,3 +40,9 @@ def calcula_pontos_regra_simples(dados_rolados):
     for jogada in dados_rolados:
         dicionario[jogada] += jogada
     return dicionario
+
+def calcula_pontos_soma(dados_rolados):
+    soma = 0
+    for dado in dados_rolados:
+        soma += dado
+    return soma
