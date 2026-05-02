@@ -169,15 +169,13 @@ def calcula_pontos_quina(dados_rolados):
     return 0
 
 def calcula_pontos_regra_avancada(dados_rolados):
-    soma_total = 0 # s combinacao
-    for dado in dados_rolados:
-        soma_total += dado
     pontuacoes = {
-        'sem_combinacao': soma_total,
+        'sem_combinacao': calcula_pontos_soma(dados_rolados),
         'sequencia_baixa': calcula_pontos_sequencia_baixa(dados_rolados),
         'sequencia_alta': calcula_pontos_sequencia_alta(dados_rolados),
         'full_house': calcula_pontos_full_house(dados_rolados),
         'quadra': calcula_pontos_quadra(dados_rolados),
-        'cinco_iguais': calcula_pontos_quina(dados_rolados) # Usando a função de quina para 'cinco_iguais'
+        'cinco_iguais': calcula_pontos_quina(dados_rolados)
     }
+
     return pontuacoes
