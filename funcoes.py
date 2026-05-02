@@ -38,16 +38,5 @@ def calcula_pontos_regra_simples(dados_rolados):
     dicionario[5] = 0
     dicionario[6] = 0
     for jogada in dados_rolados:
-        if jogada == 1:
-            dicionario[1] += 1
-        elif jogada == 2:
-            dicionario[2] += 2
-        elif jogada == 3:
-            dicionario[3] += 3
-        elif jogada == 4:
-            dicionario[4] += 4
-        elif jogada == 5:
-            dicionario[5] += 5
-        else:
-            dicionario[6] += 6
+        dicionario[jogada] += jogada
     return dicionario
