@@ -72,3 +72,24 @@ def calcula_pontos_sequencia_baixa(dados_rolados):
             contador_sequencia = 1
     return 0
 
+def calcula_pontos_sequencia_alta(dados_rolados):
+    n = len(dados_rolados)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if dados_rolados[j] > dados_rolados[j + 1]:
+                dados_rolados[j], dados_rolados[j + 1] = dados_rolados[j + 1], dados_rolados[j]
+    valores_unicos = []
+    for dado in dados_rolados:
+        if dado not in valores_unicos:
+            valores_unicos.append(dado)
+    if len(valores_unicos) < 5:
+        return 0
+    contador_sequencia = 1
+    for i in range(len(valores_unicos) - 1):
+        if valores_unicos[i+1] == valores_unicos[i] + 1:
+            contador_sequencia += 1
+            if contador_sequencia == 5:
+                return 30
+        else:
+            contador_sequencia = 1
+    return 0
