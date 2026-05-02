@@ -128,3 +128,21 @@ def calcula_pontos_full_house(dados_rolados):
             soma_total += dado
         return soma_total
     return 0
+
+def calcula_pontos_quadra(dados_rolados):
+    # deve haver um valor que aparece 4x
+    valores_unicos = []
+    for dado in dados_rolados:
+        if dado not in valores_unicos:
+            valores_unicos.append(dado)
+    for valor in valores_unicos:
+        qtd = 0
+        for dado in dados_rolados:
+            if dado == valor:
+                qtd += 1
+        if qtd == 4:
+            soma_total = 0
+            for d in dados_rolados:
+                soma_total += d
+            return soma_total
+    return 0
