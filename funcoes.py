@@ -26,3 +26,29 @@ def remover_dado(dados_rolados, dados_no_estoque, indice2):
     del dados_no_estoque[indice2]
     dados_rolados.append(dado_para_tirar)
     return [dados_rolados, dados_no_estoque]
+
+def calcula_pontos_regra_simples(dados_rolados):
+    # A cada rodada, sempre que o jogador rola os dados, jogo deverá apresentar a pontuação da combinação atual para as categorias de 1 a 6.
+    dicionario = {}
+    # dados_rolados = [2, 3, 4, 5, 2]
+    dicionario[1] = 0
+    dicionario[2] = 0
+    dicionario[3] = 0
+    dicionario[4] = 0
+    dicionario[5] = 0
+    dicionario[6] = 0
+
+
+    if 1 in dados_rolados:
+        dicionario[1] += 1
+    if 2 in dados_rolados:
+        dicionario[2] += 2
+    if 3 in dados_rolados:
+        dicionario[3] += 3
+    if 4 in dados_rolados:
+        dicionario[4] += 4
+    if 5 in dados_rolados:
+        dicionario[5] += 5
+    if 6 in dados_rolados:
+        dicionario[6] += 6
+    return dicionario
