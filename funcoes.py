@@ -93,3 +93,38 @@ def calcula_pontos_sequencia_alta(dados_rolados):
         else:
             contador_sequencia = 1
     return 0
+
+def calcula_pontos_full_house(dados_rolados):
+    # a lista dados_rolados deve ter uma trinca e um par, com valores da trinca e par diferentes entre si, n pode ter 3/+ valores diferentes, n pode ter apenas 1 valor diferente
+    n = len(dados_rolados)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if dados_rolados[j] > dados_rolados[j + 1]:
+                dados_rolados[j], dados_rolados[j + 1] = dados_rolados[j + 1], dados_rolados[j]
+    contagens = []
+    valores_unicos = []
+    for dado in dados_rolados:
+        if dado not in valores_unicos:
+            valores_unicos.append(dado)
+    if len(valores_unicos) != 2:
+        return 0
+    frequencias = []
+    for valor in valores_unicos:
+        qtd = 0
+        for dado in dados_rolados:
+            if dado == valor:
+                qtd += 1
+        frequencias.append(qtd)
+    tem_trinca = False
+    tem_par = False
+    for f in frequencias:
+        if f == 3:
+            tem_trinca = True
+        if f == 2:
+            tem_par = True
+    if tem_trinca and tem_par:
+        soma_total = 0
+        for dado in dados_rolados:
+            soma_total += dado
+        return soma_total
+    return 0
